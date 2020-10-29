@@ -56,6 +56,7 @@
             src = src.replace(/__br__/g,"<br>");
             src = src.replace(/__EQUAL__/g,"=");
             src = src.replace(/__HATENA__/g,"?");
+            src = src.replace(/__AND__/g,"&amp;");
             var str = pdc2ncr(src);
             document.getElementById("output").innerHTML = str;
         }
