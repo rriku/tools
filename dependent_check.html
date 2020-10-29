@@ -54,8 +54,8 @@
             src = src.replace(/</g, "&lt;");
             src = src.replace(/>/g, "&gt;");
             src = src.replace(/__br__/g,"<br>");
-            src = src.replace(/__=__/g,"=");
-            src = src.replace(/__?__/g,"?");
+            src = src.replace(/__EQUAL__/g,"=");
+            src = src.replace(/__HATENA__/g,"?");
             var str = pdc2ncr(src);
             document.getElementById("output").innerHTML = str;
         }
