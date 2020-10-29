@@ -53,8 +53,11 @@
             src = src.replace(/"/g, "&quot;");
             src = src.replace(/</g, "&lt;");
             src = src.replace(/>/g, "&gt;");
+            src = src.replace(/__br__/g,"<br>");
+            src = src.replace(/__=__/g,"=");
+            src = src.replace(/__?__/g,"?");
             var str = pdc2ncr(src);
-            document.getElementById("output").innerHTML = str.replace(/__br__/g,"<br>");
+            document.getElementById("output").innerHTML = str;
         }
 
         // パラメータ取得
