@@ -12,6 +12,8 @@
 
     <script type="text/javascript">
 
+        var resultOkFlg = true;
+
         // 外字環境依存文字定義
         var pdc = new Array(
             "№℡ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩⅰⅱⅲⅳⅴⅵⅶⅷⅸⅹ∑√∟∠∩∪∫∮∵≒",
@@ -41,6 +43,7 @@
                 var c = s.charAt(i);
                 if (pdc_str.indexOf(c) != -1) {
                     str += "<span style='color:#FFF;background-color:red;padding:0 2px;'>" + c+ "</span>";
+                    resultOkFlg = false;
                 } else {
                     str += c;
                 }
@@ -60,6 +63,9 @@
             src = src.replace(/__AND__/g,"&amp;");
             var str = pdc2ncr(src);
             document.getElementById("output").innerHTML = str;
+            if(resultOkFlg){
+                alert("環境依存文字は含まれていませんでした。");
+            }
         }
 
         // パラメータ取得
