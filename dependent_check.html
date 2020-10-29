@@ -54,7 +54,7 @@
             src = src.replace(/</g, "&lt;");
             src = src.replace(/>/g, "&gt;");
             var str = pdc2ncr(src);
-            document.getElementById("output").innerHTML = str;
+            document.getElementById("output").innerHTML = str.replace(/__br__/g,"<br>");
         }
 
         // パラメータ取得
