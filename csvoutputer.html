@@ -50,7 +50,7 @@ fileReader.onload = function () {
   var shuffledArray = shuffleArray(filteredArray,true);
 
   // 配列を分割 trueだと分割する
-  var dividedArray = divideArray(shuffledArray,5,true);
+  var dividedArray = divideArray(shuffledArray,3,true);
 
   for(var i=0;i<dividedArray.length;i++){
     outputCsvStringArray.push( createCsvString(dividedArray[i],csvHeader));
