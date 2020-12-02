@@ -1,1 +1,1 @@
-var test = "aaaa";
+var test = "てすてす";
