@@ -1,0 +1,119 @@
+/// mix in /// 
+@mixin basic-transition($sec:0.3){
+    transition:all #{$sec}s;
+    -webkit-transition:all #{$sec}s;
+}
+@mixin flex {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display:flex;
+	-ms-flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	flex-wrap:wrap;
+}
+@mixin break_smp($wi:480) { 
+    @media screen and (max-width:#{$wi}px) {
+        @content;
+    }
+}
+@mixin break_pc($wi:480) {
+    @media screen and (min-width:#{$wi}px) {
+        @content;
+    }
+}
+/// mix in ///
+
+// color //
+$blue:#3a77e6;
+$red:#f55a4d;
+
+body{
+    color: #1d1d1d;
+    background-color: #dedede;
+    margin: 0;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    @include break_smp(){
+        font-size: 3.5vw;
+    }
+    #wrapper{
+        width: 760px;
+        max-width: 100%;
+        margin: 50px auto;
+        background-color: #eee;
+        padding: 30px;
+        border-radius: 20px;
+        .tit_1{
+            color: #FFF;
+            background-color: #274572;
+            padding: 10px;
+            margin-top: 50px;
+            border-left: 11px solid #bccad7;
+            &:first-child{
+                margin-top: 0;
+            }
+        }
+        input[type="number"]{
+            line-height: 150%;
+            text-align: center;
+            font-size: 120%;
+            font-weight: bold;
+            width: 100px;
+            padding-left: 15px;
+        }
+        .button{
+            color: #FFF;
+            background-color: #bc0c16;
+            border: none;
+            font-size: 120%;
+            padding: 4px 5px 5px 10px;
+            border-radius: 5px;
+            display: block;
+            margin: 50px auto;
+            cursor: pointer;
+            @include basic-transition();
+            &:hover{
+                opacity: 0.7;
+            }
+        }
+        #result{
+            a{
+                display: inline-block;
+                text-decoration: none;
+                font-weight: bold;
+                color: #FFF;
+                background-color: #e06a04;
+                margin: 7px;
+                padding: 5px 8px;
+                border-radius: 5px;
+                @include basic-transition();
+                &:hover{
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+.mt0{
+    margin-top: 0!important;
+}
+.mt10{
+    margin-top: 10!important;
+}
+.mt20{
+    margin-top: 20!important;
+}
+.mt30{
+    margin-top: 30!important;
+}
+.mt40{
+    margin-top: 40!important;
+}
+.mt50{
+    margin-top: 50!important;
+}
