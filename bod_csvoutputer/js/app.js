@@ -15,7 +15,7 @@ var csvHeader;
 var array = [];
 var fileName = "";
 const readingChrset = "Shift_JIS";
-const writingChrset = "Shift_JIS";
+const writingChrset = "sjis";
 
 // 一般会員
 var fileInput_1 = document.getElementById('file_1');
@@ -94,7 +94,6 @@ function splitCsv(){
   }
 
   // フィルター
-  // const filteredArray = array.filter(x => x["都道府県(テキスト)"] == "35")
   var filteredArray;
   filteredArray = array.filter(x => x["メルマガ可否(数値)"] == "1");
 
@@ -117,7 +116,7 @@ function splitCsv(){
   for(var i=0;i<outputCsvStringArray.length;i++){
 
     var codes = Encoding.stringToCode(outputCsvStringArray[i]);
-    var shiftJisCodeList = Encoding.convert(codes, 'sjis', 'Unicode');
+    var shiftJisCodeList = Encoding.convert(codes, writingChrset, 'Unicode');
     var outputData = new Uint8Array(shiftJisCodeList);
 
     var blob = new Blob([outputData], {type: "text/csv"})
