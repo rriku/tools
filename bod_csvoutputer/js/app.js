@@ -186,12 +186,10 @@ function divideArray(trgtArray,divideNum,flgBool){
 
       for(var i=0;i<divideNum;i++){
         if(i == 0){
-          // divideArray[i] = trgtArray.slice(0,divideNum); 
           dividedArray.push(trgtArray.slice(0,dividedArrayNum));
         }else if( i == divideNum-1){
           dividedArray.push(trgtArray.slice(i*dividedArrayNum , ((i+1) * dividedArrayNum) + dividedRestNum));
         }else{
-          // divideArray[i] = trgtArray.slice(i*divideNum,(i+1) * divideNum); 
           dividedArray.push(trgtArray.slice(i*dividedArrayNum,(i+1) * dividedArrayNum));
         }
       }
