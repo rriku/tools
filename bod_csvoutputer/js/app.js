@@ -30,7 +30,7 @@ fileReader_1.onload = function () {
   // ダブルクオーテーションの中のカンマは一旦置換する
   csvString = csvString.split("\"");
   for(var i=0;i<csvString.length;i++){
-    if(i>0 && Number.isInteger(i/2)){
+    if(i>0 && !Number.isInteger(i/2)){
       csvString[i] = csvString[i].replace(",",replaceCommaChar);
     }
   }
