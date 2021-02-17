@@ -29,6 +29,7 @@ fileReader_1.onload = function () {
   var csvString = fileReader_1.result;
   // ダブルクオーテーションの中のカンマは一旦置換する
   csvString = replaceComma(csvString);
+
   csvArray_1 = csvString.split('\n');
   csvHeader_1 = csvArray_1[0].split(",");
   // データからヘッダー削除
@@ -44,6 +45,9 @@ fileInput_2.onchange = () => {
 };
 fileReader_2.onload = function () {
   var csvString = fileReader_2.result;
+  // ダブルクオーテーションの中のカンマは一旦置換する
+  csvString = replaceComma(csvString);
+
   csvArray_2 = csvString.split('\n');
   csvHeader_2 = csvArray_2[0].split(",");
   // データからヘッダー削除
@@ -174,7 +178,7 @@ function createCsvString(trgtArray,trgtHeader){
       }
     }
   }
-  return tmpOutputCsvString;
+  return tmpOutputCsvString.replace(replaceCommaChar,",");
 }
 
 // 配列分割
