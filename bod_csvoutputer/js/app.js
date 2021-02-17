@@ -34,7 +34,7 @@ fileReader_1.onload = function () {
       csvString[i] = csvString[i].replace(",",replaceCommaChar);
     }
   }
-  csvString = csvString.join();
+  csvString = csvString.join("\"");
   csvArray_1 = csvString.split('\n');
   csvHeader_1 = csvArray_1[0].split(",");
   // データからヘッダー削除
