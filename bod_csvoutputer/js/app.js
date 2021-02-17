@@ -28,13 +28,7 @@ fileInput_1.onchange = () => {
 fileReader_1.onload = function () {
   var csvString = fileReader_1.result;
   // ダブルクオーテーションの中のカンマは一旦置換する
-  csvString = csvString.split("\"");
-  for(var i=0;i<csvString.length;i++){
-    if(i>0 && !Number.isInteger(i/2)){
-      csvString[i] = csvString[i].replace(",",replaceCommaChar);
-    }
-  }
-  csvString = csvString.join("\"");
+  csvString = replaceComma(csvString);
   csvArray_1 = csvString.split('\n');
   csvHeader_1 = csvArray_1[0].split(",");
   // データからヘッダー削除
@@ -206,4 +200,15 @@ function divideArray(trgtArray,divideNum,flgBool){
       trgtArray = dividedArray;
     }
     return trgtArray;
+}
+
+// カンマを一旦置換する
+function replaceComma(csvString){
+  csvString = csvString.split("\"");
+  for(var i=0;i<csvString.length;i++){
+    if(i>0 && !Number.isInteger(i/2)){
+      csvString[i] = csvString[i].replace(",",replaceCommaChar);
+    }
+  }
+  return csvString.join("\"");
 }
