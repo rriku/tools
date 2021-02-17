@@ -10,6 +10,7 @@ var csvHeader_2;
 
 var csvArray;
 var csvHeader;
+var replaceCommaChar = "%%COMMA%%";
 
 
 var array = [];
@@ -26,6 +27,13 @@ fileInput_1.onchange = () => {
 };
 fileReader_1.onload = function () {
   var csvString = fileReader_1.result;
+  // ダブルクオーテーションの中のカンマは一旦置換する
+  csvString = csvString.split("\"");
+  for(var i=0;i<0;csvString.length){
+    if(i>0 && Number.isInteger(i/2)){
+      csvString[i] = csvString[i].replace(",",replaceCommaChar);
+    }
+  }
   csvArray_1 = csvString.split('\n');
   csvHeader_1 = csvArray_1[0].split(",");
   // データからヘッダー削除
