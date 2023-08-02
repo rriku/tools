@@ -1,0 +1,61 @@
+<div id="preview"></div>
+
+<label>
+  Horizontal Length:
+  <input type="range" id="h-length" min="-50" max="50">
+</label>
+
+<label>
+  Vertical Length:
+  <input type="range" id="v-length" min="-50" max="50">
+</label>
+
+<label>
+  Blur Radius:
+  <input type="range" id="blur" min="0" max="50">
+</label>
+
+<label>
+  Spread Radius:
+  <input type="range" id="spread" min="0" max="50">
+</label>
+
+<label>
+  Shadow Color:
+  <input type="color" id="color">
+</label>
+
+<textarea id="css-output" readonly></textarea>
+
+<style>
+#preview {
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  margin-bottom: 20px;
+}
+</style>
+
+<script>
+const preview = document.getElementById('preview');
+const hLength = document.getElementById('h-length');
+const vLength = document.getElementById('v-length');
+const blur = document.getElementById('blur');
+const spread = document.getElementById('spread');
+const color = document.getElementById('color');
+const cssOutput = document.getElementById('css-output');
+
+function updateBoxShadow() {
+  const boxShadow = `${hLength.value}px ${vLength.value}px ${blur.value}px ${spread.value}px ${color.value}`;
+  preview.style.boxShadow = boxShadow;
+  cssOutput.value = `box-shadow: ${boxShadow};`;
+}
+
+hLength.addEventListener('input', updateBoxShadow);
+vLength.addEventListener('input', updateBoxShadow);
+blur.addEventListener('input', updateBoxShadow);
+spread.addEventListener('input', updateBoxShadow);
+color.addEventListener('input', updateBoxShadow);
+
+updateBoxShadow();
+</script>
